@@ -124,35 +124,35 @@ extern int sysctl_nr_trim_pages;
 
 /* Constants used for minimum and  maximum */
 #ifdef CONFIG_LOCKUP_DETECTOR
-static int sixty = 60;
+static int sixty __read_only  = 60;
 #endif
 
-static int __maybe_unused neg_one = -1;
-static int __maybe_unused neg_three = -3;
+static int __maybe_unused neg_one __read_only = -1;
+static int __maybe_unused neg_three __read_only = -3;
 
-static int zero;
-static int __maybe_unused one = 1;
-static int __maybe_unused two = 2;
-static int __maybe_unused three = 3;
-static int __maybe_unused four = 4;
-static unsigned long zero_ul;
-static unsigned long one_ul = 1;
-static unsigned long long_max = LONG_MAX;
-static int one_hundred = 100;
-static int one_thousand = 1000;
+static int zero __read_only;
+static int __maybe_unused one __read_only = 1;
+static int __maybe_unused two __read_only = 2;
+static int __maybe_unused three __read_only = 3;
+static int __maybe_unused four __read_only = 4;
+static unsigned long zero_ul __read_only;
+static unsigned long one_ul __read_only = 1;
+static unsigned long long_max __read_only = LONG_MAX;
+static int one_hundred __read_only = 100;
+static int one_thousand __read_only = 1000;
 #ifdef CONFIG_PRINTK
-static int ten_thousand = 10000;
+static int ten_thousand __read_only = 10000;
 #endif
 #ifdef CONFIG_PERF_EVENTS
-static int six_hundred_forty_kb = 640 * 1024;
+static int six_hundred_forty_kb __read_only = 640 * 1024;
 #endif
-static int __maybe_unused two_hundred_million = 200000000;
-static int two_hundred_fifty_five = 255;
+static int __maybe_unused two_hundred_million __read_only = 200000000;
+static int two_hundred_fifty_five __read_only = 255;
 
 #ifdef CONFIG_SCHED_WALT
 const int sched_user_hint_max = 1000;
-static unsigned int ns_per_sec = NSEC_PER_SEC;
-static unsigned int one_hundred_thousand = 100000;
+static unsigned int ns_per_sec __read_only = NSEC_PER_SEC;
+static unsigned int one_hundred_thousand __read_only = 100000;
 /*
  * CFS task prio range is [100 ... 139]
  * 120 is the default prio.
@@ -160,17 +160,17 @@ static unsigned int one_hundred_thousand = 100000;
  * boost for [120 .. 139] does not make sense.
  * 99 means disabled and it is the default value.
  */
-static unsigned int min_cfs_boost_prio = 99;
-static unsigned int max_cfs_boost_prio = 119;
+static unsigned int min_cfs_boost_prio __read_only = 99;
+static unsigned int max_cfs_boost_prio __read_only = 119;
 #endif
 /* this is needed for the proc_doulongvec_minmax of vm_dirty_bytes */
-static unsigned long dirty_bytes_min = 2 * PAGE_SIZE;
+static unsigned long dirty_bytes_min __read_only = 2 * PAGE_SIZE;
 
 /* this is needed for the proc_dointvec_minmax for [fs_]overflow UID and GID */
-static int maxolduid = 65535;
-static int minolduid;
+static int maxolduid __read_only = 65535;
+static int minolduid __read_only;
 
-static int ngroups_max = NGROUPS_MAX;
+static int ngroups_max __read_only = NGROUPS_MAX;
 static const int cap_last_cap = CAP_LAST_CAP;
 
 /*
@@ -178,7 +178,7 @@ static const int cap_last_cap = CAP_LAST_CAP;
  * and hung_task_check_interval_secs
  */
 #ifdef CONFIG_DETECT_HUNG_TASK
-static unsigned long hung_task_timeout_max = (LONG_MAX/HZ);
+static unsigned long hung_task_timeout_max __read_only = (LONG_MAX/HZ);
 #endif
 
 #ifdef CONFIG_INOTIFY_USER
@@ -358,19 +358,19 @@ static struct ctl_table sysctl_base_table[] = {
 };
 
 #ifdef CONFIG_SCHED_DEBUG
-static int min_sched_granularity_ns = 100000;		/* 100 usecs */
-static int max_sched_granularity_ns = NSEC_PER_SEC;	/* 1 second */
-static int min_wakeup_granularity_ns;			/* 0 usecs */
-static int max_wakeup_granularity_ns = NSEC_PER_SEC;	/* 1 second */
+static int min_sched_granularity_ns __read_only = 100000;		/* 100 usecs */
+static int max_sched_granularity_ns __read_only = NSEC_PER_SEC;	/* 1 second */
+static int min_wakeup_granularity_ns __read_only;			/* 0 usecs */
+static int max_wakeup_granularity_ns __read_only = NSEC_PER_SEC;	/* 1 second */
 #ifdef CONFIG_SMP
-static int min_sched_tunable_scaling = SCHED_TUNABLESCALING_NONE;
-static int max_sched_tunable_scaling = SCHED_TUNABLESCALING_END-1;
+static int min_sched_tunable_scaling __read_only = SCHED_TUNABLESCALING_NONE;
+static int max_sched_tunable_scaling __read_only = SCHED_TUNABLESCALING_END-1;
 #endif /* CONFIG_SMP */
 #endif /* CONFIG_SCHED_DEBUG */
 
 #ifdef CONFIG_COMPACTION
-static int min_extfrag_threshold;
-static int max_extfrag_threshold = 1000;
+static int min_extfrag_threshold __read_only;
+static int max_extfrag_threshold __read_only = 1000;
 #endif
 
 static struct ctl_table kern_table[] = {
