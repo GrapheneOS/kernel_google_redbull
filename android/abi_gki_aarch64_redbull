@@ -112,6 +112,7 @@
   cpus_read_unlock
   cpu_subsys
   cpu_topology
+  creds_are_invalid
   crypto_alloc_shash
   crypto_destroy_tfm
   crypto_shash_digest
@@ -410,6 +411,7 @@
   irq_set_irq_type
   irq_set_irq_wake
   irq_to_desc
+  __invalid_creds
   jiffies
   jiffies_to_msecs
   jiffies_to_usecs
