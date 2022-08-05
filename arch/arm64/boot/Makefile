@@ -27,12 +27,12 @@ DTB_LIST := $(addsuffix .dtb,$(DTB_NAMES))
 else
 DTB_LIST := $(dtb-y)
 endif
-DTB_OBJS := $(shell find $(obj)/dts/ -name \*.dtb)
+DTB_OBJS := $(shell find $(obj)/dts/ -name \*.dtb | sort)
 
-DTBO_OBJS := $(shell find $(obj)/dts/ -name \*.dtbo)
-DTBO_OBJS_BRAMBLE = $(shell find $(obj)/dts/google -name \*bramble*.dtbo)
-DTBO_OBJS_REDFIN = $(shell find $(obj)/dts/google -name \*redfin*.dtbo)
-DTBO_OBJS_BARBET = $(shell find $(obj)/dts/google -name \*barbet*.dtbo)
+DTBO_OBJS := $(shell find $(obj)/dts/ -name \*.dtbo | sort)
+DTBO_OBJS_BRAMBLE = $(shell find $(obj)/dts/google -name \*bramble*.dtbo | sort)
+DTBO_OBJS_REDFIN = $(shell find $(obj)/dts/google -name \*redfin*.dtbo | sort)
+DTBO_OBJS_BARBET = $(shell find $(obj)/dts/google -name \*barbet*.dtbo | sort)
 
 # Add RTIC DTB to the DTB list if RTIC MPGen is enabled
 # Note, we keep this for compatibility with
